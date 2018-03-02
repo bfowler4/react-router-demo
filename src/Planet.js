@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class Planet extends Component {
   constructor(props) {
@@ -27,6 +28,11 @@ class Planet extends Component {
 
   render() {
     console.log('render', this.state)
+    if (this.state.detail === 'Not found') {
+      return (
+        <Redirect to='/planets' />
+      );
+    }
     const {
       climate,
       diameter,
